@@ -1,3 +1,88 @@
-<div class="container">
-  <div class="display-4 pt-4">Home Works!</div>
+<!-- BLOCK 1 : Jumbotron Form -->
+<div class="jumbotron">
+  <div class="container">
+    <form class="pt-4">
+      <div class="form-group" style="vertical-align:bottom;">
+        <input type="text" class="form-control" placeholder="Enter Ticker Symbol.." [(ngModel)]="ticker" name="ticker" (keyup)="fetchData();" style="text-transform:uppercase;">
+      </div>
+    </form>
+  </div>
 </div>
+<!-- END OF BLOCK 1 : Jumbotron Form -->
+
+<!-- BLOCK 2 : Result -->
+<div class="container">
+  <div class="row container">
+    <div class="col">
+
+      <!-- If data exists -->
+      <div *ngIf="data">
+
+          <!--  If data is valid  -->
+          <div *ngIf="data.results && data.results.quote.Name">
+
+            <!-- Card View of Result -->
+            <div class="Gcard col-md-12">
+                <a href="#">
+                  <div class="GcardContainer lead pt-4">
+                    {{ data.results.quote.Name }}
+                    <span class="float-right hidden-sm-down text-muted cap">{{data.results.quote.symbol}}</span>
+                  </div>
+                </a>
+
+                <p id="row1" class="GcardContainer lead">
+                  {{data.results.quote.LastTradePriceOnly}} USD
+                  <i [ngClass]="{'pl-4':true,'fa':true,'fa-arrow-up':data.results.quote.Change.charAt(0)=='+','fa-arrow-down':data.results.quote.Change.charAt(0)=='-'}" aria-hidden="true" *ngIf="data.results.quote.Change">
+                    &nbsp;{{data.results.quote.Change.slice(1,6)}}  ({{data.results.quote.Change_PercentChange.slice(9,16)}})
+                  </i>
+                </p>
+                <hr>
+
+                <div class="GcardContainer">
+                  <div class="row">
+                    <div class="col">Open: {{data.results.quote.Open}}</div>
+                    <div class="col">MktCap: {{data.results.quote.MarketCapitalization}}</div>
+                  </div>
+                  <div class="row">
+                    <div class="col">High: {{data.results.quote.DaysHigh}}</div>
+                    <div class="col">P/E ratio: {{data.results.quote.PERatio || 'NA'}}</div>
+                  </div>
+                  <div class="row">
+                    <div class="col">Low: {{data.results.quote.DaysLow}}</div>
+                    <div class="col">Div yield: {{data.results.quote.DividendYield || 'NA'}}</div>
+                  </div>
+                </div>
+
+                <hr>
+                </div>
+                <!-- END Card View -->
+
+            </div>
+            <!-- END OF data is valid -->
+
+            <!-- If data is invalid -->
+            <div *ngIf="ticker && (!data || !data.results || !data.results.quote.Name)">
+              <div class="alert alert-danger fade show" role="alert">
+                Please check your ticker.
+              </div>
+            </div>
+            <!-- END OF data is invalid -->
+
+        </div>
+      <!-- END OF data exists -->
+
+      <!-- If user input is empty -->
+      <div *ngIf="!ticker" class="container pt-4">
+        <div class="">
+          Most used ticker symbols:
+          <div class="card-block">
+            GOOG - Alphabet Inc.<br>YHOO - Yahoo! Inc.
+          </div>
+        </div>
+      </div>
+      <!-- END OF user input -->
+
+    </div>
+  </div>
+</div>
+<!-- END BLOCK 2 : Result -->

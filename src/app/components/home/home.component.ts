@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Title } from '@angular/platform-browser';    // To set title statically
+import { Title } from '@angular/platform-browser';    // To set title of the page
+
+import { YahooService } from '../../services/yahoo.service';
 
 @Component({
   selector: 'app-home',
@@ -8,11 +10,24 @@ import { Title } from '@angular/platform-browser';    // To set title statically
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private titleService: Title) {
-      this.titleService.setTitle('Stocker');           // Setting title of the page
+  ticker:string;
+  data:any;
+
+  constructor(private titleService: Title,private _yahooService:YahooService) {
+      this.titleService.setTitle('Stocker');           // Setting title statically
+  }
+
+fetchData(){
+    this._yahooService.updateTicker(this.ticker);
+    this._yahooService.getData().subscribe(data => {
+      this.data = data.query;
+      // console.log(data); // for debugging
+    });
   }
 
   ngOnInit() {
+    // this.ticker='GOOG';  // Initialised with Google data
+    // this.fetchData();
   }
 
 }
