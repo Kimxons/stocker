@@ -20,3 +20,11 @@
   width:100%;
   height:280px;
 }
+
+/* Font Awesome Color Customization */
+.fa-arrow-down {
+  color:#DD4B39;
+}
+.fa-arrow-up {
+  color:green;
+}

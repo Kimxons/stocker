@@ -16,8 +16,13 @@ const appRoutes: Routes = [
     },
     {
         path:'detail',
+        redirectTo: '',
+        pathMatch: 'full'
+    },
+    {
+        path:'detail/:tkr',
         component: DetailComponent
-    }
+    },
 ];
 
 export const appRoutingProviders: any[] = [];

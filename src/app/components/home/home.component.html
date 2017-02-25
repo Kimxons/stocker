@@ -22,7 +22,7 @@
           <div *ngIf="data.results && data.results.quote.Name">
 
             <!-- Card View of Result -->
-            <a routerLink="/detail">
+            <a routerLink='detail/{{data.results.quote.symbol}}'>
             <div class="Gcard col-md-12">
 
                   <div class="GcardContainer lead">
