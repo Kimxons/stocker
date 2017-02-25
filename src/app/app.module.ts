@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { DetailComponent } from './components/detail/detail.component';
 
 // Third Party Imports
 import { routing } from './app.routing';  // Import routing config file
@@ -18,7 +19,8 @@ import { routing } from './app.routing';  // Import routing config file
     AppComponent,
     HomeComponent,
     AboutComponent,
-    NavbarComponent
+    NavbarComponent,
+    DetailComponent
   ],
   imports: [
     BrowserModule,

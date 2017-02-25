@@ -1,0 +1,68 @@
+<div class="containers">
+  <div class="lead">
+
+    <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-3 row">
+        <div class="col">
+          Company Name
+          <p class="lead pt-3">
+            <strong>$123</strong>
+            <i class="fa fa-arrow-up" aria-hidden="true">
+              &nbsp;0.123 (+0.123%)
+            </i>
+          </p>
+        </div>
+        <span class="float-right text-muted em-5 col-3">
+          <span class="float-right caps">CN</span>
+          <br>
+          <span class="float-right em-5">Updated at 12:34:56 UTC</span>
+          <br>
+          <span class="float-right em-5">2017-02-25</span>
+          <br>
+          <span class="float-right em-5">
+            <button id="jumboBtn" class="btn btn-outline-primary radius-circle">
+              <i class="fa fa-refresh" aria-hidden="true"></i>&nbsp;Refresh
+            </button>
+          </span>
+        </span>
+      </h1>
+
+
+    </div>
+    </div>
+
+
+      <div class="container-fluid row">
+        <div class="col-5">
+          <ul class="list-group">
+            <li class="list-group-item"><strong>Range:&nbsp;</strong>$123 - $234</li>
+            <li class="list-group-item"><strong>Previous Close:&nbsp;</strong>$123.45</li>
+            <li class="list-group-item"><strong>Average Daily Volume:&nbsp;</strong>123456</li>
+            <li class="list-group-item"><strong>Market Capitalization:&nbsp;</strong>999</li>
+            <li class="list-group-item"><strong>P/E Ratio:&nbsp;</strong>12.34</li>
+            <li class="list-group-item"><strong>EBITDA:&nbsp;</strong>12.34</li>
+          </ul>
+        </div>
+        <div class="col-7">
+          <form>
+            <div class="row">
+              <div class="form-inline col">
+                <label for="num">View for last:&nbsp;&nbsp;&nbsp;</label>
+                <input id="num" type="number" min="1" max="60" value="1" class="form-control" placeholder="Enter a number..">
+                  <select name="span" class="form-control" id="span">
+                    <option>Days</option>
+                    <option>Months</option>
+                    <option>Years</option>
+                  </select>
+              </div>
+            </div>
+          </form>
+          <div class="containers">
+              <img src="#" id="chart" class="img-responsive">
+          </div>
+        </div>
+      </div>
+    </div>
+
+      </div>
