@@ -15,10 +15,13 @@
   border-radius: 35px;
 }
 
+.jumbotron {
+  padding-top:30px;
+  padding-bottom:30px;
+}
+
 #chart {
-  /*border:1px dashed black;*/
   width:100%;
-  /*height:280px;*/
 }
 
 /* Font Awesome Color Customization */
@@ -32,3 +35,52 @@
 html, body {
   overflow-x: hidden;
 }
+
+.Gcard {
+     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+     transition: 0.3s;
+     height: auto;
+     margin: 4px;
+     margin-bottom: 30px;
+     line-height: auto;
+ }
+
+.Gcard:hover {
+   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.8);
+   cursor:pointer;
+}
+
+.GcardContainer {
+   padding: 2px 0;
+}
+
+
+#head {
+  text-decoration: underline;
+  cursor:pointer;
+}
+
+pagination-controls {
+  text-align:center;
+  cursor:pointer;
+}
+div.col {
+  width: 100%;
+  font-size: 0.9em;
+  margin-bottom: 10px;
+}
+
+/* flexbox for Historical Data */
+.flex-container {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.flex-item {
+}
+
+.loading {
+  background:url(../../../assets/loading.gif) center center no-repeat;
+ }
