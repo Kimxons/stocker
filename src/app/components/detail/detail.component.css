@@ -16,9 +16,9 @@
 }
 
 #chart {
-  border:1px dashed black;
+  /*border:1px dashed black;*/
   width:100%;
-  height:280px;
+  /*height:280px;*/
 }
 
 /* Font Awesome Color Customization */
@@ -27,4 +27,8 @@
 }
 .fa-arrow-up {
   color:green;
+}
+
+html, body {
+  overflow-x: hidden;
 }

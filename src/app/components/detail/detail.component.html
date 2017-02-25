@@ -1,4 +1,4 @@
-<div class="containers" *ngIf="stock">
+<div *ngIf="stock">
   <div class="lead" *ngIf="stock.query.results && stock.query.results.quote.Name">
 
     <div class="jumbotron jumbotron-fluid">
@@ -33,8 +33,9 @@
     </div>
 
 
-      <div class="container-fluid row">
-        <div class="col-5">
+      <div class="container-fluid">
+        <div class="row">
+        <div class="col-5 pt-4">
           <ul class="list-group">
             <li class="list-group-item"><strong>Range:&nbsp;</strong>${{stock.query.results.quote.DaysLow}} - ${{stock.query.results.quote.DaysHigh}}</li>
             <li class="list-group-item"><strong>Previous Close:&nbsp;</strong>${{stock.query.results.quote.PreviousClose}}</li>
@@ -61,12 +62,12 @@
           </form>
 
           <div class="containers">
-              <img src="#" id="chart" class="img-responsive">
+              <img src="{{chart}}" id="chart" class="img-responsive">
           </div>
 
         </div>
 
-
+        </div>
       </div>
 
   </div>

@@ -43,6 +43,8 @@ export class DetailComponent implements OnInit {
         this.tkr = params['tkr'];    // save 'tkr' to variable
       });
       this.fetchData();
+      this.chart=this._yahooService.getChart(this.tkr,'1','d');
+      console.log(this.chart);
   }
 
 }
