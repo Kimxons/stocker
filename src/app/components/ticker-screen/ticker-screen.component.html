@@ -1,4 +1,5 @@
 <div class="tickerScreen">
+  <!-- If data exsts -->
   <div *ngIf="screen">
     <marquee scrollamount="5" direction="left" *ngIf="screen.query.count>=1">
       <span *ngFor="let tick of screen.query.results.quote" class="pr-4">
@@ -12,6 +13,8 @@
       </span>
     </marquee>
   </div>
+
+  <!-- If data doesn't exists -->
   <div *ngIf="!screen">
   <marquee scrollamount="5" direction="left">
     <span style="font-size:0.8em;">Service unavailable.</span>

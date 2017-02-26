@@ -70,7 +70,14 @@ div.col {
   font-size: 0.9em;
   margin-bottom: 10px;
 }
-
+#spanForm {
+  text-align: center;
+  align-content: center;
+  align-items: center;
+}
+#num {
+  width:80px;
+}
 /* flexbox for Historical Data */
 .flex-container {
     display: -webkit-flex;

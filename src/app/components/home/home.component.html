@@ -1,12 +1,17 @@
 <!-- BLOCK 1 : Jumbotron Form -->
 <div class="jumbotron">
   <div class="container">
-    <form class="pt-4">
-      <div class="form-group" style="vertical-align:bottom;">
-        <input type="text" class="form-control" placeholder="Enter Ticker Symbol.." [(ngModel)]="ticker" name="ticker" style="text-transform:uppercase;">
+    <form class="form-inline" autocomplete="off">
+      <div class="form-group col-md-12" style="vertical-align:bottom;text-align:center; margin-left: auto; margin-right: auto;">
+        <input type="text" class="form-control col-md-11 cap" placeholder="Search using Symbol here" [(ngModel)]="ticker" name="ticker">
         <button class="btn btn-outline-primary" (click)="fetchData()">Submit</button>
       </div>
     </form>
+    <a routerLink="/search">
+      <h1 class="lead pt-4" style="text-align:center;">
+        Don't know the Symbol? Search using Company Name here <i class="fa fa-angle-double-right"></i>
+      </h1>
+    </a>
   </div>
 </div>
 <!-- END OF BLOCK 1 : Jumbotron Form -->
@@ -24,39 +29,39 @@
 
             <!-- Card View of Result -->
             <a routerLink='detail/{{data.results.quote.symbol}}'>
-            <div class="Gcard col-md-12">
+              <div class="Gcard col-md-12">
 
-                  <div class="GcardContainer lead">
-                    {{ data.results.quote.Name }}
-                    <span class="float-right hidden-sm-down text-muted cap">{{data.results.quote.symbol}}</span>
+                    <div class="GcardContainer lead">
+                      {{ data.results.quote.Name }}
+                      <span class="float-right hidden-sm-down text-muted cap">{{data.results.quote.symbol}}</span>
+                    </div>
+
+
+                  <p id="row1" class="GcardContainer lead">
+                    {{data.results.quote.LastTradePriceOnly}} USD
+                    <i [ngClass]="{'pl-4':true,'fa':true,'fa-arrow-up':data.results.quote.Change.charAt(0)=='+','fa-arrow-down':data.results.quote.Change.charAt(0)=='-'}" aria-hidden="true" *ngIf="data.results.quote.Change">
+                      &nbsp;{{data.results.quote.Change.slice(1,6)}}  ({{data.results.quote.Change_PercentChange.slice(9,16)}})
+                    </i>
+                  </p>
+                  <hr>
+
+                  <div class="GcardContainer">
+                    <div class="row">
+                      <div class="col">Open: {{data.results.quote.Open}}</div>
+                      <div class="col">MktCap: {{data.results.quote.MarketCapitalization}}</div>
+                    </div>
+                    <div class="row">
+                      <div class="col">High: {{data.results.quote.DaysHigh}}</div>
+                      <div class="col">P/E ratio: {{data.results.quote.PERatio || 'NA'}}</div>
+                    </div>
+                    <div class="row">
+                      <div class="col">Low: {{data.results.quote.DaysLow}}</div>
+                      <div class="col">Div yield: {{data.results.quote.DividendYield || 'NA'}}</div>
+                    </div>
                   </div>
 
-
-                <p id="row1" class="GcardContainer lead">
-                  {{data.results.quote.LastTradePriceOnly}} USD
-                  <i [ngClass]="{'pl-4':true,'fa':true,'fa-arrow-up':data.results.quote.Change.charAt(0)=='+','fa-arrow-down':data.results.quote.Change.charAt(0)=='-'}" aria-hidden="true" *ngIf="data.results.quote.Change">
-                    &nbsp;{{data.results.quote.Change.slice(1,6)}}  ({{data.results.quote.Change_PercentChange.slice(9,16)}})
-                  </i>
-                </p>
-                <hr>
-
-                <div class="GcardContainer">
-                  <div class="row">
-                    <div class="col">Open: {{data.results.quote.Open}}</div>
-                    <div class="col">MktCap: {{data.results.quote.MarketCapitalization}}</div>
+                  <hr>
                   </div>
-                  <div class="row">
-                    <div class="col">High: {{data.results.quote.DaysHigh}}</div>
-                    <div class="col">P/E ratio: {{data.results.quote.PERatio || 'NA'}}</div>
-                  </div>
-                  <div class="row">
-                    <div class="col">Low: {{data.results.quote.DaysLow}}</div>
-                    <div class="col">Div yield: {{data.results.quote.DividendYield || 'NA'}}</div>
-                  </div>
-                </div>
-
-                <hr>
-                </div>
                 </a>
                 <!-- END Card View -->
 
@@ -64,7 +69,7 @@
             <!-- END OF data is valid -->
 
             <!-- If data is invalid -->
-            <div *ngIf="ticker && (!data || !data.results || !data.results.quote.Name)">
+            <div *ngIf="!data || !data.results || !data.results.quote.Name">
               <div class="alert alert-danger fade show" role="alert">
                 Please check your ticker.
               </div>
@@ -74,18 +79,30 @@
         </div>
       <!-- END OF data exists -->
 
-      <!-- If user input is empty -->
-      <div *ngIf="!ticker" class="container pt-4">
-        <div class="">
-          Most used ticker symbols:
-          <div class="card-block">
-            GOOG - Alphabet Inc.<br>YHOO - Yahoo! Inc.
-          </div>
-        </div>
-      </div>
-      <!-- END OF user input -->
-
     </div>
   </div>
 </div>
 <!-- END BLOCK 2 : Result -->
+
+<!-- If data doesn't exist -->
+<div *ngIf="!data" class="pt-4">
+  <div class="flex-container">
+    <!-- Card View for Each Day -->
+    <div class="Gcard col-4 flex-item row">
+      <img src="#" class="col-2 newsImg">
+      <div class="GcardContainer lead pt-1 col">Hillary Clinton calls for ‘resistance and persistence’ from Democrats</div>
+    </div>
+
+    <div class="Gcard col flex-item row">
+      <img src="#" class="col-2 newsImg">
+      <div class="GcardContainer lead pt-1 col">U.S. seeks extradition of ex-Guatemala officials on drug charges</div>
+    </div>
+
+    <div class="Gcard col-4 flex-item row">
+      <img src="#" class="col-2 newsImg">
+      <div class="GcardContainer lead pt-1 col">Georgia woman wages single-handed fight for open government</div>
+    </div>
+    <!-- End of Card View -->
+  </div>
+</div>
+<!-- END OF data absent -->

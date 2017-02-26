@@ -13,8 +13,9 @@ To run locally, it is assumed that you have [npm](http://npmjs.com/) installed o
 3. Run the local server with `ng serve`
 
 # Task List
-- Fetch stock data of Yahoo! API
-- Show detailed result on new page (preferably /detail/:id)
-- Implement chart
+- ~~Fetch stock data of Yahoo! API~~
+- ~~Show detailed result on new page (preferably /detail/:id)~~
+- ~~Implement search using Company Name~~
+- ~~Implement chart~~
 - Work on UI
 - Host it on Heroku

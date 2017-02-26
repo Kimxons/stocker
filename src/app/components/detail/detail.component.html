@@ -47,8 +47,10 @@
     <!-- Detail Report -->
     <div class="container-fluid">
       <div class="row">
-        <div class="col-5 pt-4">
+        <div class="col-5">
+          <a data-toggle="modal" data-target=".bd-example-modal-lg" style="cursor:pointer;">
           <ul class="list-group">
+            <li class="list-group-item active">View full details<i class="fa fa-angle-double-right <pl-3></pl-3>"></i></li>
             <li class="list-group-item"><strong>Range:&nbsp;</strong>${{stock.query.results.quote.DaysLow}} - ${{stock.query.results.quote.DaysHigh}}</li>
             <li class="list-group-item"><strong>Previous Close:&nbsp;</strong>${{stock.query.results.quote.PreviousClose}}</li>
             <li class="list-group-item"><strong>Average Daily Volume:&nbsp;</strong>{{stock.query.results.quote.AverageDailyVolume || 'NA'}}</li>
@@ -56,23 +58,28 @@
             <li class="list-group-item"><strong>P/E Ratio:&nbsp;</strong>{{stock.query.results.quote.PERatio || 'NA'}}</li>
             <li class="list-group-item"><strong>EBITDA:&nbsp;</strong>{{stock.query.results.quote.EBITDA || 'NA' || 'NA'}}</li>
           </ul>
+          </a>
         </div>
         <div class="col-7">
+          <!-- Form for Chart Updation -->
           <form>
-            <div class="row">
-              <div class="form-inline col">
+            <div class="row breadcrumb" style="display:flex;justify-content:center;align-items:center;">
+              <div class="col-md-6 form-inline" id="spanForm">
+
                 <label for="num">View for last:&nbsp;&nbsp;&nbsp;</label>
+
                 <input *ngIf="span=='d'" id="num" type="number" min="1" max="60" value="1" class="form-control" placeholder="Enter a number.." [(ngModel)]="num" name="num" (keyup)="updData();" (click)="updData();">
                 <input *ngIf="span=='m'" id="num" type="number" min="1" max="12" value="1" class="form-control" placeholder="Enter a number.." [(ngModel)]="num" name="num" (keyup)="updData();" (click)="updData();">
                 <input *ngIf="span=='y'" id="num" type="number" min="1" max="10" value="1" class="form-control" placeholder="Enter a number.." [(ngModel)]="num" name="num" (keyup)="updData();" (click)="updData();">
 
                 <select [(ngModel)]="span" name="span" placeholder="Day(s)" class="form-control" id="span" (change)="updData();">
                     <option *ngFor="let opt of options" [ngValue]="opt.id">{{opt.name}}</option>
-                  </select>
-              </div>
+                </select>
 
+              </div>
             </div>
           </form>
+          <!-- End of Form -->
 
           <div class="containers loading">
             <img src="{{chart}}" id="chart" class="img-responsive">
@@ -138,6 +145,52 @@
       <!-- End of check validity block -->
     </div>
     <!-- End of Hisorical Data -->
+
+
+
+    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">{{ stock.query.results.quote.Name }} - Detail View</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body row">
+            <div class="col">
+              <p><strong>Ask:</strong> ${{ stock.query.results.quote.Ask }}</p>
+              <p><strong>Change:</strong> {{ stock.query.results.quote.Change }}</p>
+              <p><strong>% Change:</strong> {{ stock.query.results.quote.PercentChange }}</p>
+              <p><strong>Days Low:</strong> {{ stock.query.results.quote.DaysLow }}</p>
+              <p><strong>Days High:</strong> {{ stock.query.results.quote.DaysHigh }}</p>
+              <p><strong>Year Low:</strong> {{ stock.query.results.quote.YearLow }}</p>
+              <p><strong>Year High:</strong> {{ stock.query.results.quote.YearHigh }}</p>
+              <p><strong>Book Value:</strong> {{ stock.query.results.quote.BookValue }}</p>
+              <p><strong>Days Range:</strong> {{ stock.query.results.quote.DaysRange }}</p>
+              <p><strong>Year Range:</strong> {{ stock.query.results.quote.YearRange }}</p>
+            </div>
+            <div class="col-7">
+              <p><strong>Last Trade Date:</strong> {{ stock.query.results.quote.LastTradeDate }}</p>
+              <p><strong>Last Trade Price:</strong> {{ stock.query.results.quote.LastTradePriceOnly }}</p>
+              <p><strong>Average Daily Volume:</strong> {{ stock.query.results.quote.AverageDailyVolume }}</p>
+              <p><strong>50 day Moving Average:</strong> {{ stock.query.results.quote.FiftydayMovingAverage }}</p>
+              <p><strong>% Change From 50 Moving Average:</strong> {{ stock.query.results.quote.PercentChangeFromFiftydayMovingAverage }}</p>
+              <p><strong>2000 day Moving Average:</strong> {{ stock.query.results.quote.TwoHundreddayMovingAverage }}</p>
+              <p><strong>% Change From 200 day Moving Average:</strong> {{ stock.query.results.quote.PercentChangeFromTwoHundreddayMovingAverage }}</p>
+              <p><strong>MarketCapitalization:</strong> {{ stock.query.results.quote.MarketCapitalization }}</p>
+              <p><strong>PriceEPSEstimateCurrentYear:</strong> {{ stock.query.results.quote.PriceEPSEstimateCurrentYear }}</p>
+              <p><strong>PriceEPSEstimateNextYear:</strong> {{ stock.query.results.quote.PriceEPSEstimateNextYear }}</p>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
 
   </div>
   <!-- End of valid stock data block -->
