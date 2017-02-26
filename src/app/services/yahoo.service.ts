@@ -50,4 +50,7 @@ export class YahooService {
       let url_screen = 'https://query.yahooapis.com/v1/public/yql?q='+yql_query+'&format=json&diagnostics=true&env=store://datatables.org/alltableswithkeys&callback=';
       return this._http.get(encodeURI(url_screen)).map(data=>data.json());
     }
+    getTableData() {
+      return this._http.get('assets/data.json').map(data=>data.json());
+    }
 }

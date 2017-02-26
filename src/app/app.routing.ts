@@ -4,11 +4,16 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
 import { DetailComponent } from './components/detail/detail.component';
+import { SearchComponent } from './components/search/search.component';
 
 const appRoutes: Routes = [
     {
         path:'',
         component: HomeComponent
+    },
+    {
+        path:'search',
+        component: SearchComponent
     },
     {
         path:'about',

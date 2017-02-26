@@ -1,0 +1,21 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-3 row"><input autofocus  type="text" class="form-control col-12 low" placeholder="search here" [(ngModel)]="zname" name="zname" (keyup)="filterData()">
+    </h1>
+  </div>
+</div>
+<div class="container" *ngIf="!res">
+  <div class="row">
+    <span class="Gcard col-12 pt-4" style="height:150px;text-align:center;">
+      <a><div class="GcardContainer lead align-middle pt-4">Search for symbol here by company name</div></a>
+    </span>
+  </div>
+</div>
+<div class="container" *ngIf="res">
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  <div class="row">
+    <div class="Gcard col-12" *ngFor="let tab of res | paginate: { itemsPerPage: 5, currentPage: p }">
+      <a routerLink="/detail/{{tab.Symbol}}"><div class="GcardContainer lead">{{tab.Name}}<span class="float-right hidden-sm-down">{{tab.Symbol}}</span></div></a>
+    </div>
+  </div>
+</div>

@@ -9,7 +9,7 @@ import { YahooService } from '../../services/yahoo.service';
 })
 export class TickerScreenComponent implements OnInit {
 
-  tickerList='("GOOG","YHOO","AAPL","AMZN","ADBE","AMD","LUV","CSCO","ZEUS","COOL","GRR","MMM","LOGI","BIZZ","LIFE","SYMC","WU","XRX")';
+  tickerList='("GOOG","YHOO","AAPL","MSFT","AMZN","ADBE","AMD","LUV","CSCO","ZEUS","COOL","GRR","MMM","LOGI","BIZZ","LIFE","SYMC","WU","XRX")';
   yql_query='select * from yahoo.finance.quotes where symbol in '+this.tickerList;
   screen:any;
 

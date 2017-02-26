@@ -9,11 +9,12 @@ import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { DetailComponent } from './components/detail/detail.component';
+import { TickerScreenComponent } from './components/ticker-screen/ticker-screen.component';
+import { SearchComponent } from './components/search/search.component';
 
 // Third Party Imports
 import { routing } from './app.routing';  // Import routing config file
-import { Ng2PaginationModule } from 'ng2-pagination';
-import { TickerScreenComponent } from './components/ticker-screen/ticker-screen.component';   // Pagination for Historical Data
+import { Ng2PaginationModule } from 'ng2-pagination'; // Pagination for Historical Data
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { TickerScreenComponent } from './components/ticker-screen/ticker-screen.
     AboutComponent,
     NavbarComponent,
     DetailComponent,
-    TickerScreenComponent
+    TickerScreenComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

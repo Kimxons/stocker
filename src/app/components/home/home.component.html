@@ -3,7 +3,8 @@
   <div class="container">
     <form class="pt-4">
       <div class="form-group" style="vertical-align:bottom;">
-        <input type="text" class="form-control" placeholder="Enter Ticker Symbol.." [(ngModel)]="ticker" name="ticker" (keyup)="fetchData();" style="text-transform:uppercase;">
+        <input type="text" class="form-control" placeholder="Enter Ticker Symbol.." [(ngModel)]="ticker" name="ticker" style="text-transform:uppercase;">
+        <button class="btn btn-outline-primary" (click)="fetchData()">Submit</button>
       </div>
     </form>
   </div>

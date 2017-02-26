@@ -84,4 +84,5 @@ div.col {
 
 .loading {
   background:url(../../../assets/loading.gif) center center no-repeat;
+  height: 100%;
  }
