@@ -45,3 +45,6 @@ a:hover {
 .fa-arrow-up {
   color:green;
 }
+.jumbotron {
+  margin-bottom: 0;
+}

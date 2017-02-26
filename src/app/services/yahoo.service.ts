@@ -8,6 +8,8 @@ import 'rxjs/add/operator/map';
 export class YahooService {
     private ticker:string;
     private temp:any;
+    private yql_getdata:string;
+    private url_getdata:string;
 
     constructor(private _http: Http) {
         console.log('Yahoo Service Ready...');
@@ -16,11 +18,13 @@ export class YahooService {
     // update ticker
     updateTicker(ticker:string){
       this.ticker=ticker;
+      this.yql_getdata='select * from yahoo.finance.quotes where symbol in ("'+this.ticker+'")';
+      this.url_getdata='https://query.yahooapis.com/v1/public/yql?q='+this.yql_getdata+'&format=json&diagnostics=true&env=store://datatables.org/alltableswithkeys&callback=';
     }
 
     // get data from Yahoo API and return as formatted JSON.
     getData(){
-      return this._http.get('https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20yahoo.finance.quotes%20where%20symbol%20in%20(%22'+this.ticker+'%22)&format=json&diagnostics=true&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&callback=').map(res=>res.json());
+      return this._http.get(encodeURI(this.url_getdata)).map(res=>res.json());
     }
 
     // get chart from Yahoo Finance Charts
@@ -39,6 +43,11 @@ export class YahooService {
       }
       let endDate = moment().format('YYYY-MM-DD');
       // console.log(tkr+' '+startDate+' '+num+' '+span+' '+endDate); // debugging
-      return this._http.get('https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20yahoo.finance.historicaldata%20where%20%20symbol%20=%20%22'+tkr+'%22%20and%20startDate%20=%20%22'+startDate+'%22%20and%20endDate%20=%20%22'+endDate+'%22&format=json&diagnostics=true&env=store://datatables.org/alltableswithkeys&callback=').map(data=>data.json());
+      let history_url = 'https://query.yahooapis.com/v1/public/yql?q=select * from yahoo.finance.historicaldata where  symbol = "'+tkr+'" and startDate = "'+startDate+'" and endDate = "'+endDate+'"&format=json&diagnostics=true&env=store://datatables.org/alltableswithkeys&callback=';
+      return this._http.get(encodeURI(history_url)).map(data=>data.json());
   }
+    getTickerScreen(yql_query:string) {
+      let url_screen = 'https://query.yahooapis.com/v1/public/yql?q='+yql_query+'&format=json&diagnostics=true&env=store://datatables.org/alltableswithkeys&callback=';
+      return this._http.get(encodeURI(url_screen)).map(data=>data.json());
+    }
 }

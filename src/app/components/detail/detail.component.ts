@@ -20,7 +20,7 @@ export class DetailComponent implements OnInit {
   span:string;
   prev:string;
   history:any;
-
+  
   options = [
        {id: 'd', name: "Day(s)"},
        {id: 'm', name: "Month(s)"},

@@ -1,0 +1,20 @@
+<div class="tickerScreen">
+  <div *ngIf="screen">
+    <marquee scrollamount="5" direction="left" *ngIf="screen.query.count>=1">
+      <span *ngFor="let tick of screen.query.results.quote" class="pr-4">
+        {{tick.symbol}}
+        <span class="text-muted pr-4">
+          {{tick.LastTradePriceOnly}}
+          <span [ngClass]="{'fa':true,'fa-caret-up green':tick.Change.charAt(0)=='+','fa-caret-down red':tick.Change.charAt(0)=='-'}" aria-hidden="true">
+            {{tick.Change_PercentChange.slice(8,16)}}
+          </span>
+        </span>
+      </span>
+    </marquee>
+  </div>
+  <div *ngIf="!screen">
+  <marquee scrollamount="5" direction="left">
+    <span style="font-size:0.8em;">Service unavailable.</span>
+  </marquee>
+  </div>
+</div>
