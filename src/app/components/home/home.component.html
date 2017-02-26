@@ -1,10 +1,10 @@
 <!-- BLOCK 1 : Jumbotron Form -->
 <div class="jumbotron">
   <div class="container">
-    <form class="form-inline" autocomplete="off">
-      <div class="form-group col-md-12" style="vertical-align:bottom;text-align:center; margin-left: auto; margin-right: auto;">
-        <input type="text" class="form-control col-md-11 cap" placeholder="Search using Symbol here" [(ngModel)]="ticker" name="ticker">
-        <button class="btn btn-outline-primary" (click)="fetchData()">Submit</button>
+    <form class="form-inline row" autocomplete="off">
+      <div class="form-group col-12" style="vertical-align:bottom;text-align:center; margin-left: auto; margin-right: auto;">
+        <input type="text" class="form-control col-12 col-sm-10 col-lg-11 cap" placeholder="Search using Symbol here" [(ngModel)]="ticker" name="ticker">
+        <button class="col-12 col-sm-2 col-lg-1 btn btn-outline-primary" (click)="fetchData()">Submit</button>
       </div>
     </form>
     <a routerLink="/search">

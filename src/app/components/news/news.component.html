@@ -1,6 +1,6 @@
 <div class="loading" *ngIf="!news"></div>
 <div *ngIf="news">
-  <pagination-controls (pageChange)="p = $event" style="cursor:pointer;text-align:center;"></pagination-controls>
+  <pagination-controls (pageChange)="p = $event" style="cursor:pointer;text-align:center;" class="hidden-sm-down"></pagination-controls>
   <div class="flex-container">
     <!-- Card View for Each Day -->
     <div class="Gcard col flex-item" *ngFor="let gist of news | paginate: { itemsPerPage: num, currentPage: p }">
@@ -15,10 +15,8 @@
           <strong>{{gist.title}}</strong>
           <br>
         </div>
-        <a href="{{gist.link}}" class="row" target="_blank" style="text-align:center;bottom:0;">
-          <span class="col-2">&nbsp;</span>
+        <a href="{{gist.link}}" class="row pb-3" target="_blank" style="text-align:center;bottom:0;justify-content: center;">
           <span class="col-8" style="text-align:center;">Read more &nbsp; <i class="fa fa-angle-double-right"></i></span>
-          <span class="col-2">&nbsp;</span>
         </a>
       </div>
 

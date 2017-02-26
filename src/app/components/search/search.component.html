@@ -1,9 +1,10 @@
 <!-- BLOCK 1 : Jumbotron Form -->
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
-    <h1 class="display-3 row"><input autofocus  type="text" class="form-control col-12 cap" placeholder="search here by symbol or company name" [(ngModel)]="zname" name="zname" (keyup)="filterData()">
+    <h1 class="display-3 row">
+      <input autofocus  type="text" class="form-control col-8 offset-2 cap" placeholder="search here by symbol or company name" [(ngModel)]="zname" name="zname" (keyup)="filterData()">
     </h1>
-    <p class="lead pt-2" *ngIf="res">{{res.length}} companies found.</p>
+    <p class="lead pt-2 offset-2" *ngIf="res">{{res.length}} companies found.</p>
     <p class="lead pt-2" *ngIf="!res">&nbsp;</p>
   </div>
 </div>
@@ -23,7 +24,7 @@
 
 <!-- If res exists -->
 <div class="container" *ngIf="res">
-  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  <pagination-controls (pageChange)="p = $event" class="hidden-sm-down"></pagination-controls>
   <!-- If Result Found -->
   <div class="row">
     <div class="Gcard col-12" *ngFor="let tab of res | paginate: { itemsPerPage: 5, currentPage: p }">

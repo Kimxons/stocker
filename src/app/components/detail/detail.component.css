@@ -64,6 +64,7 @@ html, body {
 pagination-controls {
   text-align:center;
   cursor:pointer;
+  font-size: 0.9em;
 }
 div.col {
   width: 100%;
@@ -84,6 +85,7 @@ div.col {
     display: flex;
     -webkit-flex-wrap: wrap;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .flex-item {

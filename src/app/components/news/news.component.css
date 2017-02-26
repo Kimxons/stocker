@@ -5,6 +5,8 @@
   height: auto;
   margin-bottom: 30px;
   line-height: auto;
+  max-width: 250px;
+  min-width:200px;
 }
 
 .Gcard:hover {
@@ -37,6 +39,7 @@ a:hover {
     display: flex;
     -webkit-flex-wrap: wrap;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .flex-item {

@@ -22,7 +22,7 @@
           <!-- End of Company Details -->
 
           <!-- API Resquest data -->
-            <span class="float-right text-muted em-5 col-3 pt-4">
+            <span class="float-right text-muted em-5 col-3 pt-4 hidden-md-down">
               <span class="float-right caps">{{stock.query.results.quote.Symbol}}</span>
               <br>
               <span class="float-right em-5">Updated at {{stock.query.created.slice(11,19)}} UTC</span>
@@ -47,7 +47,7 @@
     <!-- Detail Report -->
     <div class="container-fluid">
       <div class="row">
-        <div class="col-5">
+        <div class="col-12 col-lg-5">
           <a data-toggle="modal" data-target=".bd-example-modal-lg" style="cursor:pointer;">
           <ul class="list-group">
             <li class="list-group-item active">View full details<i class="fa fa-angle-double-right pl-3"></i></li>
@@ -60,19 +60,19 @@
           </ul>
           </a>
         </div>
-        <div class="col-7">
+        <div class="col-12 col-lg-7">
           <!-- Form for Chart Updation -->
           <form>
             <div class="row breadcrumb" style="display:flex;justify-content:center;align-items:center;">
-              <div class="col-md-6 form-inline" id="spanForm">
+              <div class="col-12 col-md-8 form-inline" id="spanForm">
 
-                <label for="num">View for last:&nbsp;&nbsp;&nbsp;</label>
+                <label for="num" class="col-5">View for last:&nbsp;&nbsp;&nbsp;</label>
 
-                <input *ngIf="span=='d'" id="num" type="number" min="1" max="60" value="1" class="form-control" placeholder="Enter a number.." [(ngModel)]="num" name="num" (keyup)="updData();" (click)="updData();">
-                <input *ngIf="span=='m'" id="num" type="number" min="1" max="12" value="1" class="form-control" placeholder="Enter a number.." [(ngModel)]="num" name="num" (keyup)="updData();" (click)="updData();">
-                <input *ngIf="span=='y'" id="num" type="number" min="1" max="10" value="1" class="form-control" placeholder="Enter a number.." [(ngModel)]="num" name="num" (keyup)="updData();" (click)="updData();">
+                <input *ngIf="span=='d'" id="num" type="number" min="1" max="60" value="1" class="form-control col-3" placeholder="Enter a number.." [(ngModel)]="num" name="num" (keyup)="updData();" (click)="updData();">
+                <input *ngIf="span=='m'" id="num" type="number" min="1" max="12" value="1" class="form-control col-3" placeholder="Enter a number.." [(ngModel)]="num" name="num" (keyup)="updData();" (click)="updData();">
+                <input *ngIf="span=='y'" id="num" type="number" min="1" max="10" value="1" class="form-control <col-3></col-3>" placeholder="Enter a number.." [(ngModel)]="num" name="num" (keyup)="updData();" (click)="updData();">
 
-                <select [(ngModel)]="span" name="span" placeholder="Day(s)" class="form-control" id="span" (change)="updData();">
+                <select [(ngModel)]="span" name="span" placeholder="Day(s)" class="form-control col-4 col-sm-3" id="span" (change)="updData();">
                     <option *ngFor="let opt of options" [ngValue]="opt.id">{{opt.name}}</option>
                 </select>
 
@@ -126,7 +126,7 @@
           <pagination-controls (pageChange)="p = $event"></pagination-controls>
           <div class="flex-container">
             <!-- Card View for Each Day -->
-            <div class="Gcard col flex-item" *ngFor="let gist of history.results.quote | paginate: { itemsPerPage: 7, currentPage: p }">
+            <div class="Gcard col flex-item" *ngFor="let gist of history.results.quote | paginate: { itemsPerPage: 7, currentPage: p }" style="max-width: 250px;min-width:200px;">
               <div class="GcardContainer lead pt-1 caps"><strong>{{gist.Date}}</strong></div>
               <hr class="my-3">
               <div class="GcardContainer lead">
