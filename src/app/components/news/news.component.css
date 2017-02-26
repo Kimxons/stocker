@@ -22,36 +22,15 @@ a {
 a:hover {
   text-decoration:none;
 }
-
-.cap {
-  text-transform: uppercase;
-}
 .newsImg {
   margin-bottom:2px;
   background-size: cover;
   margin:0 auto;
 }
-/* Font Sizes */
-.em-5 {
-  font-size:0.5em;
-}
 .em-9 {
   font-size:0.9em;
 }
-.em-15 {
-  font-size:1.8em;
-}
 
-/* Font Awesome Color Customization */
-.fa-arrow-down {
-  color:#DD4B39;
-}
-.fa-arrow-up {
-  color:green;
-}
-.jumbotron {
-  margin-bottom: 0;
-}
 /* flexbox for Historical Data */
 .flex-container {
     display: -webkit-flex;
@@ -65,5 +44,5 @@ a:hover {
 }
  .loading {
    background:url(../../../assets/loading.gif) center center no-repeat;
-   height: 100%;
+   height: 250px;;
   }

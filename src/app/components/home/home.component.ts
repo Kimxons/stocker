@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit {
       this.titleService.setTitle('Stocker');           // Setting title statically
   }
 
+// Function to fetch Data
 fetchData(){
     this._yahooService.updateTicker(this.ticker);
     this._yahooService.getData().subscribe(data => {
@@ -24,6 +25,8 @@ fetchData(){
       // console.log(data); // for debugging
     });
   }
+
+
 
   ngOnInit() {
     // this.ticker='GOOG';  // Initialised with Google data

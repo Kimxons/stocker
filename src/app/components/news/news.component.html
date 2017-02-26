@@ -1,0 +1,28 @@
+<div class="loading" *ngIf="!news"></div>
+<div *ngIf="news">
+  <pagination-controls (pageChange)="p = $event" style="cursor:pointer;text-align:center;"></pagination-controls>
+  <div class="flex-container">
+    <!-- Card View for Each Day -->
+    <div class="Gcard col flex-item" *ngFor="let gist of news | paginate: { itemsPerPage: num, currentPage: p }">
+
+      <div class="GcardContainer lead pt-1 em-9" style="text-align:center;">
+        <div class="row pt-3" style="margin:0 auto;">
+          <img class="newsImg" src="{{gist.content.url}}" *ngIf="!gist.content.url==''">
+          <img class="newsImg" src="assets/placeholder.png" *ngIf="gist.content.url==''">
+        </div>
+        <div class="clearfix"></div>
+        <div class="row pt-4 pb-4" style="text-align:center;margin-left:0;">
+          <strong>{{gist.title}}</strong>
+          <br>
+        </div>
+        <a href="{{gist.link}}" class="row" target="_blank" style="text-align:center;bottom:0;">
+          <span class="col-2">&nbsp;</span>
+          <span class="col-8" style="text-align:center;">Read more &nbsp; <i class="fa fa-angle-double-right"></i></span>
+          <span class="col-2">&nbsp;</span>
+        </a>
+      </div>
+
+    </div>
+    <!-- End of Card View -->
+  </div>
+</div>

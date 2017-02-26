@@ -70,9 +70,13 @@
 
             <!-- If data is invalid -->
             <div *ngIf="!data || !data.results || !data.results.quote.Name">
-              <div class="alert alert-danger fade show" role="alert">
+              <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
                 Please check your ticker.
               </div>
+              <app-news num=5></app-news>
             </div>
             <!-- END OF data is invalid -->
 
@@ -86,23 +90,6 @@
 
 <!-- If data doesn't exist -->
 <div *ngIf="!data" class="pt-4">
-  <div class="flex-container">
-    <!-- Card View for Each Day -->
-    <div class="Gcard col-4 flex-item row">
-      <img src="#" class="col-2 newsImg">
-      <div class="GcardContainer lead pt-1 col">Hillary Clinton calls for ‘resistance and persistence’ from Democrats</div>
-    </div>
-
-    <div class="Gcard col flex-item row">
-      <img src="#" class="col-2 newsImg">
-      <div class="GcardContainer lead pt-1 col">U.S. seeks extradition of ex-Guatemala officials on drug charges</div>
-    </div>
-
-    <div class="Gcard col-4 flex-item row">
-      <img src="#" class="col-2 newsImg">
-      <div class="GcardContainer lead pt-1 col">Georgia woman wages single-handed fight for open government</div>
-    </div>
-    <!-- End of Card View -->
-  </div>
+  <app-news num=7></app-news>
 </div>
 <!-- END OF data absent -->

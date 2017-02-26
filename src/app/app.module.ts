@@ -11,10 +11,11 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { DetailComponent } from './components/detail/detail.component';
 import { TickerScreenComponent } from './components/ticker-screen/ticker-screen.component';
 import { SearchComponent } from './components/search/search.component';
+import { NewsComponent } from './components/news/news.component'; 
 
 // Third Party Imports
 import { routing } from './app.routing';  // Import routing config file
-import { Ng2PaginationModule } from 'ng2-pagination'; // Pagination for Historical Data
+import { Ng2PaginationModule } from 'ng2-pagination';   // Pagination for Historical Data
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { Ng2PaginationModule } from 'ng2-pagination'; // Pagination for Historic
     NavbarComponent,
     DetailComponent,
     TickerScreenComponent,
-    SearchComponent
+    SearchComponent,
+    NewsComponent
   ],
   imports: [
     BrowserModule,

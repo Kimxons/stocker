@@ -6,13 +6,18 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class YahooService {
+
     private ticker:string;
     private temp:any;
+
     private yql_getdata:string;
     private url_getdata:string;
 
+    private yql_news='select * from rss where url="http://rss.news.yahoo.com/rss/topstories"';
+    private url_news = 'https://query.yahooapis.com/v1/public/yql?q='+this.yql_news+'&format=json&diagnostics=true&env=store://datatables.org/alltableswithkeys&callback=';
+
     constructor(private _http: Http) {
-        console.log('Yahoo Service Ready...');
+        // console.log('Yahoo Service Ready...');
     }
 
     // update ticker
@@ -45,12 +50,21 @@ export class YahooService {
       // console.log(tkr+' '+startDate+' '+num+' '+span+' '+endDate); // debugging
       let history_url = 'https://query.yahooapis.com/v1/public/yql?q=select * from yahoo.finance.historicaldata where  symbol = "'+tkr+'" and startDate = "'+startDate+'" and endDate = "'+endDate+'"&format=json&diagnostics=true&env=store://datatables.org/alltableswithkeys&callback=';
       return this._http.get(encodeURI(history_url)).map(data=>data.json());
-  }
+    }
+
+    // Get Data for Ticker Marquee Screen
     getTickerScreen(yql_query:string) {
       let url_screen = 'https://query.yahooapis.com/v1/public/yql?q='+yql_query+'&format=json&diagnostics=true&env=store://datatables.org/alltableswithkeys&callback=';
       return this._http.get(encodeURI(url_screen)).map(data=>data.json());
     }
+
+    // Get JSON data from local file for searching
     getTableData() {
       return this._http.get('assets/data.json').map(data=>data.json());
+    }
+
+    // Function to fetch news off Yahoo! News RSS
+    getNews(){
+      return this._http.get(encodeURI(this.url_news)).map(res=>res.json());
     }
 }
