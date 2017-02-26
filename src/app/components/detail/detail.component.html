@@ -50,7 +50,7 @@
         <div class="col-5">
           <a data-toggle="modal" data-target=".bd-example-modal-lg" style="cursor:pointer;">
           <ul class="list-group">
-            <li class="list-group-item active">View full details<i class="fa fa-angle-double-right <pl-3></pl-3>"></i></li>
+            <li class="list-group-item active">View full details<i class="fa fa-angle-double-right pl-3"></i></li>
             <li class="list-group-item"><strong>Range:&nbsp;</strong>${{stock.query.results.quote.DaysLow}} - ${{stock.query.results.quote.DaysHigh}}</li>
             <li class="list-group-item"><strong>Previous Close:&nbsp;</strong>${{stock.query.results.quote.PreviousClose}}</li>
             <li class="list-group-item"><strong>Average Daily Volume:&nbsp;</strong>{{stock.query.results.quote.AverageDailyVolume || 'NA'}}</li>
@@ -161,24 +161,24 @@
             <div class="col">
               <p><strong>Ask:</strong> ${{ stock.query.results.quote.Ask }}</p>
               <p><strong>Change:</strong> {{ stock.query.results.quote.Change }}</p>
-              <p><strong>% Change:</strong> {{ stock.query.results.quote.PercentChange }}</p>
-              <p><strong>Days Low:</strong> {{ stock.query.results.quote.DaysLow }}</p>
-              <p><strong>Days High:</strong> {{ stock.query.results.quote.DaysHigh }}</p>
-              <p><strong>Year Low:</strong> {{ stock.query.results.quote.YearLow }}</p>
-              <p><strong>Year High:</strong> {{ stock.query.results.quote.YearHigh }}</p>
-              <p><strong>Book Value:</strong> {{ stock.query.results.quote.BookValue }}</p>
-              <p><strong>Days Range:</strong> {{ stock.query.results.quote.DaysRange }}</p>
-              <p><strong>Year Range:</strong> {{ stock.query.results.quote.YearRange }}</p>
+              <p><strong>% change:</strong> {{ stock.query.results.quote.PercentChange }}</p>
+              <p><strong>Days low:</strong> {{ stock.query.results.quote.DaysLow }}</p>
+              <p><strong>Days high:</strong> {{ stock.query.results.quote.DaysHigh }}</p>
+              <p><strong>Year low:</strong> {{ stock.query.results.quote.YearLow }}</p>
+              <p><strong>Year high:</strong> {{ stock.query.results.quote.YearHigh }}</p>
+              <p><strong>Book value:</strong> {{ stock.query.results.quote.BookValue }}</p>
+              <p><strong>Days range:</strong> {{ stock.query.results.quote.DaysRange }}</p>
+              <p><strong>Year range:</strong> {{ stock.query.results.quote.YearRange }}</p>
             </div>
-            <div class="col-7">
-              <p><strong>Last Trade Date:</strong> {{ stock.query.results.quote.LastTradeDate }}</p>
-              <p><strong>Last Trade Price:</strong> {{ stock.query.results.quote.LastTradePriceOnly }}</p>
-              <p><strong>Average Daily Volume:</strong> {{ stock.query.results.quote.AverageDailyVolume }}</p>
-              <p><strong>50 day Moving Average:</strong> {{ stock.query.results.quote.FiftydayMovingAverage }}</p>
-              <p><strong>% Change From 50 Moving Average:</strong> {{ stock.query.results.quote.PercentChangeFromFiftydayMovingAverage }}</p>
-              <p><strong>200 day Moving Average:</strong> {{ stock.query.results.quote.TwoHundreddayMovingAverage }}</p>
-              <p><strong>% Change From 200 day Moving Average:</strong> {{ stock.query.results.quote.PercentChangeFromTwoHundreddayMovingAverage }}</p>
-              <p><strong>MarketCapitalization:</strong> {{ stock.query.results.quote.MarketCapitalization }}</p>
+            <div class="col-6">
+              <p><strong>Last trade date:</strong> {{ stock.query.results.quote.LastTradeDate }}</p>
+              <p><strong>Last trade price:</strong> {{ stock.query.results.quote.LastTradePriceOnly }}</p>
+              <p><strong>Average daily volume:</strong> {{ stock.query.results.quote.AverageDailyVolume }}</p>
+              <p><strong>50 day moving average:</strong> {{ stock.query.results.quote.FiftydayMovingAverage }}</p>
+              <p><strong>% Change from 50 day average:</strong> {{ stock.query.results.quote.PercentChangeFromFiftydayMovingAverage }}</p>
+              <p><strong>200 day moving average:</strong> {{ stock.query.results.quote.TwoHundreddayMovingAverage }}</p>
+              <p><strong>% Change from 200 day average:</strong> {{ stock.query.results.quote.PercentChangeFromTwoHundreddayMovingAverage }}</p>
+              <p><strong>Market Capitalization:</strong> {{ stock.query.results.quote.MarketCapitalization }}</p>
               <p><strong>PriceEPSEstimateCurrentYear:</strong> {{ stock.query.results.quote.PriceEPSEstimateCurrentYear }}</p>
               <p><strong>PriceEPSEstimateNextYear:</strong> {{ stock.query.results.quote.PriceEPSEstimateNextYear }}</p>
             </div>
@@ -194,6 +194,18 @@
 
   </div>
   <!-- End of valid stock data block -->
+
+  <div class="lead" *ngIf="!stock.query.results || !stock.query.results.quote.Name">
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-3">Woah!</h1>
+        <p class="lead pt-2"><strong>Seems like you are lost here.</strong> No problem! We got you covered.</p>
+        <a routerLink="/" class="btn btn-lg btn-outline-danger radius-circle" style="margin-top:20px;margin-bottom:20px;"><i class="fa fa-home pr-2"></i>Go home</a>
+        <a routerLink="/search" class="btn btn-lg btn-outline-info radius-circle pr-4" style="margin-top:20px;margin-bottom:20px;"><i class="fa fa-search pr-2 pl-1 pr-1"></i>Search</a>
+      </div>
+    </div>
+    <div class="container pt-4 display-4 watermark">These Violent Delights Have Violent Ends.</div>
+  </div>
 
 </div>
 <!-- End of stocks -->

@@ -5,6 +5,7 @@ import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
 import { DetailComponent } from './components/detail/detail.component';
 import { SearchComponent } from './components/search/search.component';
+import { _404Component } from './components/_404/_404.component';
 
 const appRoutes: Routes = [
     {
@@ -28,6 +29,10 @@ const appRoutes: Routes = [
         path:'detail/:tkr',
         component: DetailComponent
     },
+    {
+        path:'**',
+        component: _404Component
+    }
 ];
 
 export const appRoutingProviders: any[] = [];

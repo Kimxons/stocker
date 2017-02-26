@@ -18,7 +18,7 @@ export class NewsComponent implements OnInit {
   fetchNews(){
       this._yahooService.getNews().subscribe(data => {
         this.news = data.query.results.item;
-        console.log(data);
+        // console.log(data);
       });
     }
 

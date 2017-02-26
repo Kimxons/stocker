@@ -11,7 +11,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { DetailComponent } from './components/detail/detail.component';
 import { TickerScreenComponent } from './components/ticker-screen/ticker-screen.component';
 import { SearchComponent } from './components/search/search.component';
-import { NewsComponent } from './components/news/news.component'; 
+import { NewsComponent } from './components/news/news.component';
+import { _404Component } from './components/_404/_404.component';
 
 // Third Party Imports
 import { routing } from './app.routing';  // Import routing config file
@@ -26,7 +27,8 @@ import { Ng2PaginationModule } from 'ng2-pagination';   // Pagination for Histor
     DetailComponent,
     TickerScreenComponent,
     SearchComponent,
-    NewsComponent
+    NewsComponent,
+    _404Component
   ],
   imports: [
     BrowserModule,

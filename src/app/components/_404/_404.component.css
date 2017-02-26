@@ -1,0 +1,11 @@
+.watermark {
+  color:rgba(0,0,0,0.2);
+  user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
+}
+.radius-circle {
+  border-radius: 35px;
+}

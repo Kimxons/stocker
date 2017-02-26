@@ -93,3 +93,12 @@ div.col {
   background:url(../../../assets/loading.gif) center center no-repeat;
   height: 100%;
  }
+.watermark {
+ color:rgba(0,0,0,0.2);
+ user-select: none;
+ -moz-user-select: none;
+ -khtml-user-select: none;
+ -webkit-user-select: none;
+ -o-user-select: none;
+ padding-top:20px;
+}
