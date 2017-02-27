@@ -1,1 +1,4 @@
-/* You can add global styles to this file, and also import other style files */
+.loading {
+  background:url(assets/loading.gif) center center no-repeat;
+  height: 250px;
+ }

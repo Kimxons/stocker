@@ -15,7 +15,7 @@
               <p class="lead pt-3">
                 <strong>${{stock.query.results.quote.LastTradePriceOnly}}</strong>
                 <i [ngClass]="{'pl-4':true,'fa':true,'fa-arrow-up':stock.query.results.quote.Change.charAt(0)=='+','fa-arrow-down':stock.query.results.quote.Change.charAt(0)=='-'}" aria-hidden="true" *ngIf="stock.query.results.quote.Change">
-                  &nbsp;{{stock.query.results.quote.Change.slice(1,6)}} ({{stock.query.results.quote.Change_PercentChange.slice(9,16)}})
+                  &nbsp;{{stock.query.results.quote.Change}} ({{stock.query.results.quote.PercentChange}})
                 </i>
               </p>
             </div>

@@ -40,7 +40,7 @@
                   <p id="row1" class="GcardContainer lead">
                     {{data.results.quote.LastTradePriceOnly}} USD
                     <i [ngClass]="{'pl-4':true,'fa':true,'fa-arrow-up':data.results.quote.Change.charAt(0)=='+','fa-arrow-down':data.results.quote.Change.charAt(0)=='-'}" aria-hidden="true" *ngIf="data.results.quote.Change">
-                      &nbsp;{{data.results.quote.Change.slice(1,6)}}  ({{data.results.quote.Change_PercentChange.slice(9,16)}})
+                      &nbsp;{{data.results.quote.Change}}  ({{data.results.quote.PercentChange}})
                     </i>
                   </p>
                   <hr>
@@ -90,6 +90,6 @@
 
 <!-- If data doesn't exist -->
 <div *ngIf="!data" class="pt-4">
-  <app-news num=7></app-news>
+  <app-news num=6></app-news>
 </div>
 <!-- END OF data absent -->
